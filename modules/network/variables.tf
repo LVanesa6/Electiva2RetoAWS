@@ -1,35 +1,23 @@
 variable "project_name" {
-  description = "Nombre del proyecto para identificar recursos"
-  type        = string
+  type = string
 }
 
 variable "vpc_cidr" {
-  description = "CIDR de la VPC"
-  type        = string
+  type = string
 }
 
 variable "public_subnet_cidrs" {
-  description = "Lista de CIDRs para las subredes públicas"
-  type        = list(string)
+  type = list(string)
 }
 
 variable "private_subnet_cidrs" {
-  description = "Lista de CIDRs para las subredes privadas"
-  type        = list(string)
+  type = list(string)
 }
 
 variable "public_subnet_azs" {
-  description = "AZ para las subnets públicas (debe coincidir con la cantidad de CIDRs)"
-  type        = list(string)
+  type = list(string)
 }
 
 variable "private_subnet_azs" {
-  description = "AZ para las subnets privadas (debe coincidir con la cantidad de CIDRs)"
-  type        = list(string)
-}
-
-variable "ssh_allowed_cidrs" {
-  description = "CIDRs permitidos para SSH"
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
+  type = list(string)
 }
