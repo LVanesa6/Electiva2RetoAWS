@@ -143,7 +143,7 @@ resource "aws_security_group" "public_sg" {
 #########################################
 resource "aws_security_group" "private_sg" {
   name        = "${var.project_name}-private-sg"
-  description = "Permite solo tráfico interno"
+  description = "Permite solo trafico interno"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -154,7 +154,7 @@ resource "aws_security_group" "private_sg" {
   }
 
   ingress {
-    description     = "Permitir tráfico del EKS"
+    description     = "Permitir trafico del EKS"
     from_port       = 1025
     to_port         = 65535
     protocol        = "tcp"
