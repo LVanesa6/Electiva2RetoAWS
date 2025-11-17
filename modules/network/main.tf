@@ -144,6 +144,14 @@ resource "aws_security_group" "private_sg" {
     cidr_blocks = [var.vpc_cidr]
   }
 
+  ingress {
+    description     = "Permitir trafico del EKS"
+    from_port       = 1025
+    to_port         = 65535
+    protocol        = "tcp"
+    security_groups = [aws_security_group.public_sg.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0

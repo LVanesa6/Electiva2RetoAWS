@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/ramavanesa
 module "network" {
   source               = "./modules/network"
   project_name         = var.project_name
@@ -9,6 +12,7 @@ module "network" {
   private_subnet_azs   = ["us-east-1a", "us-east-1b"]
   ssh_allowed_cidrs    = ["0.0.0.0/0"]
 }
+<<<<<<< HEAD
 
 module "ecr" {
   source       = "./modules/ecr"
@@ -33,4 +37,10 @@ module "alb" {
   public_subnets    = module.network.public_subnets
   target_group_port = 80
   vpc_id            = module.network.vpc_id
+=======
+module "storage" {
+  source       = "./modules/storage"
+  project_name = var.project_name
+  environment  = var.environment
+>>>>>>> origin/ramavanesa
 }

@@ -8,3 +8,8 @@ variable "project_name" {
   type    = string
   default = "reto2"
 }
+variable "environment" {
+  description = "Entorno de despliegue"
+  type        = string
+  default     = "dev"
+}
