@@ -18,6 +18,16 @@ variable "private_subnet_cidrs" {
   type        = list(string)
 }
 
+variable "public_subnet_azs" {
+  description = "AZ para las subnets públicas (debe coincidir con la cantidad de CIDRs)"
+  type        = list(string)
+}
+
+variable "private_subnet_azs" {
+  description = "AZ para las subnets privadas (debe coincidir con la cantidad de CIDRs)"
+  type        = list(string)
+}
+
 variable "ssh_allowed_cidrs" {
   description = "CIDRs permitidos para SSH"
   type        = list(string)
