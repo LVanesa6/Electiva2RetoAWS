@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 module "network" {
   source = "./modules/network"
 
@@ -12,8 +8,20 @@ module "network" {
   ssh_allowed_cidrs    = ["0.0.0.0/0"]
 }
 
-module "eks" {
-  source ="./modules/eks"
+module "ecr" {
+  source       = "./modules/ecr"
+  project_name = var.project_name
+}
 
-  subnets_id = module.network.private_subnets
+module "storage" {
+  source       = "./modules/storage"
+  project_name = var.project_name
+}
+
+module "alb" {
+  source         = "./modules/alb"
+  project_name   = var.project_name
+  vpc_id         = module.network.vpc_id
+  public_sg_id   = module.network.public_sg_id
+  subnets_public = module.network.public_subnets
 }

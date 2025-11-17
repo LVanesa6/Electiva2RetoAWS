@@ -1,4 +1,15 @@
+variable "project_name" {
+  type = string
+}
+
 variable "subnets_id" {
-  description = "Subnets"
-  type        = list(string)
+  type = list(string)
+}
+
+variable "eks_role_arn" {
+  type = string
+}
+
+variable "node_role_arn" {
+  type = string
 }
