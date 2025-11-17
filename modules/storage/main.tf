@@ -1,29 +1,14 @@
-#########################################
-# S3 Bucket
-#########################################
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket" "appbucket" {
     bucket = "${var.project_name}-bucket"
-
-    tags = {
-        Name = "${var.project_name}-bucket"
-    }
 }
 
-#########################################
-# DynamoDB
-#########################################
-resource "aws_dynamodb_table" "table" {
-    name         = "${var.project_name}-table"
+resource "aws_dynamodb_table" "appdb" {
+    name         = "${var.project_name}-db"
     billing_mode = "PAY_PER_REQUEST"
-
-    hash_key = "id"
+    hash_key     = "id"
 
     attribute {
         name = "id"
         type = "S"
-    }
-
-    tags = {
-        Name = "${var.project_name}-ddb"
     }
 }

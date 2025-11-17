@@ -1,7 +1,7 @@
-output "bucket_id" {
-    value = aws_s3_bucket.bucket.id
+output "bucket_name" {
+    value = aws_s3_bucket.appbucket.bucket
 }
 
-output "dynamodb_table_name" {
-    value = aws_dynamodb_table.table.name
+output "dynamodb_name" {
+    value = aws_dynamodb_table.appdb.name
 }
