@@ -8,7 +8,7 @@ variable "project_name" {
 #variable "private_subnet_ids" {
 #  type = list(string)
 #}
-variable "public_subnet_ids" {
+variable "public_subnets" {
   type = list(string)
 }
 

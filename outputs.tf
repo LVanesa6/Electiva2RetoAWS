@@ -3,7 +3,7 @@ output "vpc_id" {
 }
 
 output "public_subnets" {
-  value = module.network.public_subnet_ids
+  value = module.network.public_subnets
 }
 
 

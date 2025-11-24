@@ -28,6 +28,7 @@ module "eks" {
   node_max_size         = 2
   ssh_key_name          = "" # Si tienes keypair, ponlo aquí
 }
+
 data "aws_eks_cluster_auth" "token" {
   name = module.eks.cluster_name
 }
@@ -38,6 +39,8 @@ module "alb" {
   region       = var.aws_region
   vpc_id       = module.network.vpc_id
   cluster_name = module.eks.cluster_name
+}
+
 module "vpn" {
   source = "./modules/vpn"
 
