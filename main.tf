@@ -50,5 +50,5 @@ module "vpn" {
   tags                = {}
   azure_vpn_public_ip = var.azure_vpn_public_ip
   azure_vnet_cidr     = var.azure_vnet_cidr
-  route_table_ids     = module.network.route_table_ids
+  route_table_ids     = module.network.public_route_table_id
 }

@@ -17,7 +17,3 @@ output "igw_id" {
 output "public_route_table_id" {
   value = aws_route_table.public.id
 }
-
-output "route_table_ids" {
-  value = aws_route_table.this[*].id
-}
