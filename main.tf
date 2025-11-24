@@ -19,9 +19,9 @@ module "storage" {
 module "eks" {
   source = "./modules/eks"
 
-  project_name      = var.project_name
+  project_name   = var.project_name
   public_subnets = module.network.public_subnets
-  vpc_id            = module.network.vpc_id
+  vpc_id         = module.network.vpc_id
 
   node_desired_capacity = 1
   node_min_size         = 1
@@ -44,11 +44,11 @@ module "alb" {
 module "vpn" {
   source = "./modules/vpn"
 
-  vpc_id = module.network.vpc_id
-  vpc_cidr = module.network.vpc_cidr
-  shared_key = var.shared_key
-  tags = {}
+  vpc_id              = module.network.vpc_id
+  vpc_cidr            = module.network.vpc_cidr
+  shared_key          = var.shared_key
+  tags                = {}
   azure_vpn_public_ip = var.azure_vpn_public_ip
-  azure_vnet_cidr = var.azure_vnet_cidr
-  route_table_ids = module.network.route_table_ids
+  azure_vnet_cidr     = var.azure_vnet_cidr
+  route_table_ids     = module.network.route_table_ids
 }
