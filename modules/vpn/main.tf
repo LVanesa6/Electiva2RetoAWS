@@ -25,7 +25,7 @@ resource "aws_vpn_connection" "connection" {
   type                = "ipsec.1"
 
   static_routes_only = true
-  
+
   tunnel1_preshared_key = var.shared_key
   tunnel2_preshared_key = var.shared_key
 
@@ -41,8 +41,8 @@ resource "aws_vpn_connection" "connection" {
 
 # Ruta estática en la conexión: hacia la VNet de Azure (no hacia tu VPC)
 resource "aws_vpn_connection_route" "route_to_azure" {
-  vpn_connection_id       = aws_vpn_connection.connection.id
-  destination_cidr_block  = var.azure_vnet_cidr
+  vpn_connection_id      = aws_vpn_connection.connection.id
+  destination_cidr_block = var.azure_vnet_cidr
 }
 
 

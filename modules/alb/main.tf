@@ -33,8 +33,8 @@ data "aws_eks_cluster_auth" "cluster" {
 # OIDC / IAM role & policy for ALB controller
 ################################################
 resource "aws_iam_openid_connect_provider" "oidc" {
-  url            = data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer
-  client_id_list = ["sts.amazonaws.com"]
+  url             = data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer
+  client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = ["9e99a48a9960b14926bb7f3b02e22da0afd40df6"]
 }
 
@@ -87,7 +87,7 @@ provider "helm" {
 # Install AWS Load Balancer Controller via Helm
 ################################################
 resource "helm_release" "aws_lb_controller" {
-  provider   = helm.alb
+  provider = helm.alb
   depends_on = [
     aws_iam_role.lb_controller,
     aws_iam_role_policy_attachment.lb_controller_attach
