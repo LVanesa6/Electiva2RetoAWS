@@ -17,3 +17,14 @@ module "eks" {
 
   subnets_id = module.network.private_subnets
 }
+
+module "vpn" {
+  source = "./modules/vpn"
+
+  vpc_id = module.network.vpc_id
+  vpc_cidr = module.network.cidr_block
+  shared_key = var.shared_key
+  tags = {}
+  azure_vpn_public_ip = var.azure_vpn_public_ip
+  azure_vnet_cidr = var.azure_vnet_cidr
+}
