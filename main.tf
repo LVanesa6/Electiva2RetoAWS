@@ -45,7 +45,7 @@ module "vpn" {
   source = "./modules/vpn"
 
   vpc_id = module.network.vpc_id
-  vpc_cidr = module.network.cidr_block
+  vpc_cidr = module.network.vpc_cidr
   shared_key = var.shared_key
   tags = {}
   azure_vpn_public_ip = var.azure_vpn_public_ip
