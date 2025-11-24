@@ -10,14 +10,11 @@ output "public_subnets" {
   value = aws_subnet.public[*].id
 }
 
-output "private_subnets" {
-  value = aws_subnet.private[*].id
+output "igw_id" {
+  value = aws_internet_gateway.gw.id
 }
 
-output "public_sg_id" {
-  value = aws_security_group.public_sg.id
+output "public_route_table_id" {
+  value = aws_route_table.public.id
 }
 
-output "private_sg_id" {
-  value = aws_security_group.private_sg.id
-}
