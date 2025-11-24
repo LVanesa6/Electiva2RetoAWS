@@ -28,3 +28,7 @@ variable "azure_vnet_cidr" {
   description = "CIDR de la VNet de Azure"
   type        = string
 }
+
+variable "route_table_ids" {
+  type = list(string)
+}

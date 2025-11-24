@@ -52,7 +52,7 @@ data "aws_route_tables" "vpc_rts" {
 }
 
 resource "aws_route" "vpc_to_azure" {
-  count = length(data.aws_route_tables.vpc_rts.ids)
+  for_each = toset(var.route_table_ids)
 
   route_table_id         = element(data.aws_route_tables.vpc_rts.ids, count.index)
   destination_cidr_block = var.azure_vnet_cidr
